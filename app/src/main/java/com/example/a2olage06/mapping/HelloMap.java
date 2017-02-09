@@ -92,7 +92,7 @@ public class HelloMap extends Activity implements View.OnClickListener
                 }
                 else
                 {
-                    mv.getTileProvider().setTileSource(TileSourceFactory.MAPNIK);
+                    mv.setTileSource(TileSourceFactory.MAPNIK);
                 }
             }
         }
