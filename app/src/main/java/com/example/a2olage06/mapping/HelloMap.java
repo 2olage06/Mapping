@@ -21,7 +21,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class HelloMap extends Activity implements View.OnClickListener
+public class HelloMap extends Activity //implements View.OnClickListener
 {
 
     MapView mv;
@@ -43,19 +43,19 @@ public class HelloMap extends Activity implements View.OnClickListener
         mv.getController().setZoom(14);
         mv.getController().setCenter(new GeoPoint(40.1, 22.5));
 
-        Button b = (Button)findViewById(R.id.button1);
-        b.setOnClickListener(this);
+      //  Button b = (Button)findViewById(R.id.button1);
+       // b.setOnClickListener(this);
 
     }
 
-    public void onClick(View view){
-        EditText et1 = (EditText) findViewById(R.id.Latitude);
-        double latitude= Double.parseDouble(et1.getText().toString());
-        EditText et2 = (EditText) findViewById(R.id.Longitude);
-        double longitude= Double.parseDouble(et2.getText().toString());
-        mv.getController().setCenter(new GeoPoint(latitude, longitude));
+    //public void onClick(View view){
+      // EditText et1 = (EditText) findViewById(R.id.Latitude);
+      //  double latitude= Double.parseDouble(et1.getText().toString());
+      //  EditText et2 = (EditText) findViewById(R.id.Longitude);
+      //  double longitude= Double.parseDouble(et2.getText().toString());
+     //    mv.getController().setCenter(new GeoPoint(latitude, longitude));
 
-    }
+   // }
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -74,7 +74,16 @@ public class HelloMap extends Activity implements View.OnClickListener
             // react to the menu item being selected...
             return true;
         }
+
+
+        if(item.getItemId() == R.id.SetLocation)
+        {
+            Intent intent = new Intent(this,SetLocation.class);
+            startActivityForResult(intent, 1);
+            return true;
+        }
         return false;
+
     }
     protected void onActivityResult(int requestCode,int resultCode,Intent intent)
     {
@@ -94,6 +103,15 @@ public class HelloMap extends Activity implements View.OnClickListener
                 {
                     mv.setTileSource(TileSourceFactory.MAPNIK);
                 }
+            }
+        }
+        if(requestCode==1)
+        {
+            if (resultCode==RESULT_OK) {
+                Bundle extras = intent.getExtras();
+                double latitude = extras.getDouble("com.example.latitude");
+                double longitude = extras.getDouble("com.example.longitude");
+                mv.getController().setCenter(new GeoPoint(latitude, longitude));
             }
         }
     }

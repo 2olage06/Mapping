@@ -3,4 +3,5 @@
     <string name="choosemap">Choose Map Style</string>
     <string name="regularview">Regular View</string>
     <string name="cyclemapview">Cycle View</string>
+    <string name="SetLocation">Set Location</string>
 </resources>
