@@ -4,4 +4,5 @@
     <string name="regularview">Regular View</string>
     <string name="cyclemapview">Cycle View</string>
     <string name="SetLocation">Set Location</string>
+    <string name="PoiLocation">Points of Interest</string>
 </resources>

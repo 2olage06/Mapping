@@ -4,12 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.IntegerRes;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-import android.view.View.OnClickListener;
 
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.views.MapView;
@@ -82,7 +76,23 @@ public class HelloMap extends Activity //implements View.OnClickListener
             startActivityForResult(intent, 1);
             return true;
         }
+
+        if(item.getItemId() == R.id.MapListActivity)
+        {
+            Intent intent = new Intent(this,MapListActivity.class);
+            startActivityForResult(intent, 0);
+            return true;
+        }
+
+        if(item.getItemId() == R.id.PoiListActivity)
+        {
+            Intent intent = new Intent(this,PoiListActivity.class);
+            startActivityForResult(intent, 2);
+            return true;
+        }
+
         return false;
+
 
     }
     protected void onActivityResult(int requestCode,int resultCode,Intent intent)
@@ -114,6 +124,7 @@ public class HelloMap extends Activity //implements View.OnClickListener
                 mv.getController().setCenter(new GeoPoint(latitude, longitude));
             }
         }
+
     }
 
 }
