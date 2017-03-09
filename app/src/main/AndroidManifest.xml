@@ -30,6 +30,7 @@
             android:label="Set Location" />
         <activity android:name=".MapListActivity" />
         <activity android:name=".PoiListActivity"/>
+        <activity android:name=".MyPrefsActivity"/>
     </application>
 
 </manifest>

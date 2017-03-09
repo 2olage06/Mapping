@@ -5,5 +5,6 @@
     <item android:id="@+id/SetLocation" android:title="Set Location"/>
     <item android:id="@+id/MapListActivity" android:title="Choose Map Style(List)"/>
     <item android:id="@+id/PoiListActivity" android:title="Points of Interest"/>
+    <item android:id="@+id/MyPrefsActivity" android:title="Preferences"/>
 
 </menu>

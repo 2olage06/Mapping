@@ -2,6 +2,7 @@ package com.example.a2olage06.mapping;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
@@ -126,5 +127,20 @@ public class HelloMap extends Activity //implements View.OnClickListener
         }
 
     }
+
+    public void onStart()
+    {
+        super.onStart();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        double lat = Double.parseDouble(prefs.getString("lat", "50.9"));
+        double lon = Double.parseDouble(prefs.getString("lon", "-1.4"));
+        mv.getController().setCenter(new GeoPoint(lat, lon));
+        int zoom = Integer.parseInt(prefs.getString("zoom","14"));
+        mv.getController().setZoom(zoom);
+
+
+    }
+
+
 
 }
